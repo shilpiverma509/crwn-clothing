@@ -1,0 +1,30 @@
+.collection-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 350px;
+  width: 22%;
+
+  .image{
+    height: 95%;
+    width: 100%;
+    background-size: cover;
+    margin-bottom: 10px;
+    background-position: center;
+  }
+  .collection-footer{
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 18px;
+  }
+  .name {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+
+  .price {
+    width: 10%;
+  }
+}
