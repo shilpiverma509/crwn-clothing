@@ -9,7 +9,8 @@ const config = {
   storageBucket: "crown-db-f056c.appspot.com",
   messagingSenderId: "1015437993805",
   appId: "1:1015437993805:web:3156faa1891807959cb904",
-  measurementId: "G-SZD58RVXRD"
+  measurementId: "G-SZD58RVXRD",
+  
 };
 
 firebase.initializeApp(config);
@@ -17,8 +18,13 @@ firebase.initializeApp(config);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({prompt:'select_account'});
-export const signInWithGoogle = ()=>auth.signInWithPopup(provider);
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+const twitterProvider = new firebase.auth.TwitterAuthProvider();
+
+googleProvider.setCustomParameters({prompt:'select_account'});
+twitterProvider.setCustomParameters({prompt:'select_account'});
+
+export const signInWithGoogle = ()=>auth.signInWithPopup(googleProvider);
+export const signInWithTwitter = ()=>auth.signInWithPopup(twitterProvider);
 
 export default firebase;
