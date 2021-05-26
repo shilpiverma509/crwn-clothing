@@ -49,9 +49,7 @@ export const createUserProfileDocument = async(userAuth,additionalData)=>{
 }
 
 export const addCollectionAndDocuments = async (collectionKey,objectsToAdd)=>{
-  console.log("object",objectsToAdd);
   const collectionRef = firestore.collection(collectionKey);
-  console.log(collectionRef);
 
   const batch = firestore.batch();
   objectsToAdd.forEach((obj)=>{
@@ -75,7 +73,6 @@ export const convertCollectionsSnapshotToMap = (collectionsSnapshot)=>{
   console.log("cs",collectionsSnapshot);
   // console.log("transformedCollections",transformedCollections);
   return transformedCollections.reduce((accumulator,collection) => {
-    console.log("colle",collection);
     accumulator[collection.title.toLowerCase()] = collection;
     return accumulator;
   },{})
